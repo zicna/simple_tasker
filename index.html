@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="file:///Users/zicna/Downloads/bootstrap.css">
+    <title>Simple Noter</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="bg-secundary text-primary">Simple Noter</h2>
+        <button id="note-add-new"class="btn btn-primary">Add new note</button>
+        
+        <form id="note-form" class="card mb-3" style="display:none">
+                <legend>New Note</legend>
+                <div class="form-group row">
+                    <label for="note-subject" class="col-sm-2 col-form-label">Note Subject</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="note-subject">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="note-body" class="col-sm-2 col-form-label">Note:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control-plaintext" id="note-body">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="note-date" class="col-sm-2 col-form-label">Note date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control-plaintext" id="note-date">
+                    </div>
+                </div>
+                <div class="d-grid gap-2"></div>
+                    <input type="submit" class="btn btn-lg btn-primary" id="note-submit">
+                </div>
+                </div>
+        </form>
+
+        
+        <table id="note-table" class="table table-hover table-default" >
+            <thead class="table-active">
+                <tr>
+                    <th scope="col">Note subject</th>
+                    <th scope="col">Note:</th>
+                    <th scope="col">Note date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Note One</td>
+                    <td>Note One</td>
+                    <td>Note One</td>
+                    <td>Note One</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="index.js"></script>
+    <script src="helpers/pomps.js"></script>
+    <script src="helpers/storage.js"></script>
+
+</body>
+</html>
