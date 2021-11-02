@@ -3,6 +3,7 @@ const  noteForm= document.getElementById("note-form")
 const  noteSubmit= document.getElementById("note-submit")
 const  noteAddNew= document.getElementById("note-add-new")
 const noteTable = document.getElementById("note-table")
+const noteList = document.querySelector('#note-list')
 
 // *form constatns
 const noteSubject = document.getElementById("note-subject")
@@ -30,18 +31,25 @@ const handleSubmit = (event) => {
     if(noteS === "" || noteB === "" || noteD ===""){
         Promps.worning()
     } else {
-        // debugger
     const note = new Note(noteS, noteB, noteD)
-        console.log(note)
-    // Storage.saveNote(note)
+    Storage.addNote(note)
+    UI.addNotesToLIst(note)
     }
 
 }
 
 
-// * Events
-window.addEventListener("DOMContentLoaded", () => {
-    UI.displayNotes()
-})
+// * Event Listeners
+document.addEventListener("DOMContentLoaded", UI.displayNotes)
 noteAddNew.addEventListener("click", handleNoteAddNew)
 noteForm.addEventListener("submit", handleSubmit)
+// *adding event listener for whole '#note-list' 
+noteList.addEventListener('click', (event)=> {
+    // * first we need to check what is clicked
+    // * second remove from UI
+    // * third remove book from localeStorage
+    // event.target.classList.contains("btn-danger")
+    UI.removeNote(event.target)
+    Storage.removeNote(event.target)
+
+})
