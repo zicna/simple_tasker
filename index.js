@@ -35,7 +35,7 @@ const handleSubmit = (event) => {
     Storage.addNote(note)
     UI.addNotesToLIst(note)
     }
-
+    event.target.reset()
 }
 
 
