@@ -13,22 +13,14 @@ const noteDate = document.getElementById("note-date")
 
 // * instances from classes
 
-
-
-const handleAddNew = () => {
-    noteForm.style.display = "block"
-    noteAddNew.style.display = "none"
-}
-
-const handleCancel = () => {
-    noteForm.style.display = "none"
-    noteAddNew.style.display = "block"
+const toggleShow = () => {
+    noteForm.classList.toggle("no-show");
+    noteAddNew.classList.toggle("no-show");
 }
 
 const handleSubmit = (event) => {
     event.preventDefault()
-    noteForm.style.display = "none"
-    noteAddNew.style.display = "block"
+    toggleShow();
 
     const noteS = noteSubject.value
     const noteB = noteBody.value
@@ -48,7 +40,8 @@ const handleSubmit = (event) => {
 
 // * Event Listeners
 document.addEventListener("DOMContentLoaded", UI.displayNotes)
-noteAddNew.addEventListener("click", handleAddNew)
+noteAddNew.addEventListener("click", toggleShow)
+noteCancel.addEventListener("click", toggleShow);
 noteForm.addEventListener("submit", handleSubmit)
 
 // *adding event listener for whole '#note-list' 
@@ -56,13 +49,11 @@ noteList.addEventListener('click', (event)=> {
     // * first we need to check what is clicked
     // * second remove from UI
     // * third remove book from localeStorage
-    // event.target.classList.contains("btn-danger")
     UI.removeNote(event.target)
     Storage.removeNote(event.target)
 
 })
 
-noteCancel.addEventListener("click", handleCancel);
 
 // * Warning to users that refreshing or closing simple note will result in losing data
 
