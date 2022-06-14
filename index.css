@@ -18,3 +18,13 @@
     height: 2rem;
 }
 
+.success {
+    background-color: #dff0d8;
+    color: green;
+}
+
+.danger {
+    background-color: lightcoral;
+    color: red;
+}
+
