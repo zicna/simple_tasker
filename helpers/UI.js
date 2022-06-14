@@ -1,13 +1,9 @@
 class UI{
     static displayNotes(){
-
-        const notes = Storage.getNotes()
-        notes.forEach(note => {
-            UI.addNotesToLIst(note)
-        })
+        Storage.getNotes().forEach(note => UI.addNotesToLIst(note))
     }
 
-    static addNotesToLIst(note){
+    static addNoteToTable(note){
         
             const tableRow = document.createElement('tr')
             tableRow.innerHTML = 

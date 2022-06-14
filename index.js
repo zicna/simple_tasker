@@ -29,11 +29,11 @@ const handleSubmit = (event) => {
     if(noteS === "" || noteB === "" || noteD ===""){
         Promps.worning()
     } else {
-    const note = new Note(noteS, noteB, noteD)
-    Storage.addNote(note)
-    UI.addNotesToLIst(note)
+    const note = new Note(noteS, noteB, noteD);
+    Storage.addNote(note);
+    UI.addNoteToTable(note);
     }
-    event.target.reset()
+    event.target.reset();
 }
 
 
