@@ -7,8 +7,14 @@
 .m-top-5 {
     margin-top: 5rem;
 }
-
+/* ************ */
 .no-show {
     display: none;
+}
+
+
+/* ************* */
+.noti-container {
+    height: 2rem;
 }
 
