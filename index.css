@@ -1,5 +1,11 @@
+/* * margin classes  */
+
 .m-10{
-    margin: 5.5rem;
+    margin: 5rem;
+}
+
+.m-top-5 {
+    margin-top: 5rem;
 }
 
 .no-show {

@@ -1,6 +1,6 @@
 class UI{
     static displayNotes(){
-        Storage.getNotes().forEach(note => UI.addNotesToLIst(note))
+        Storage.getNotes().forEach(note => UI.addNoteToTable(note))
     }
 
     static addNoteToTable(note){
@@ -13,6 +13,7 @@ class UI{
                 <th>${note.date}</th>
                 <th><a href="" class="btn btn-danger">X</a></th>
             `
+            Promps.success();
             noteList.appendChild(tableRow)
     }
 
