@@ -1,6 +1,7 @@
 // * HTML constants
 const  noteForm= document.getElementById("note-form")
 const  noteSubmit= document.getElementById("note-submit")
+const  noteCancel= document.getElementById("note-cancel")
 const  noteAddNew= document.getElementById("note-add-new")
 const noteTable = document.getElementById("note-table")
 const noteList = document.querySelector('#note-list')
@@ -13,10 +14,15 @@ const noteDate = document.getElementById("note-date")
 // * instances from classes
 
 
-// * callbacks from events
-const handleNoteAddNew = () => {
+
+const handleAddNew = () => {
     noteForm.style.display = "block"
     noteAddNew.style.display = "none"
+}
+
+const handleCancel = () => {
+    noteForm.style.display = "none"
+    noteAddNew.style.display = "block"
 }
 
 const handleSubmit = (event) => {
@@ -39,10 +45,12 @@ const handleSubmit = (event) => {
 }
 
 
+
 // * Event Listeners
 document.addEventListener("DOMContentLoaded", UI.displayNotes)
-noteAddNew.addEventListener("click", handleNoteAddNew)
+noteAddNew.addEventListener("click", handleAddNew)
 noteForm.addEventListener("submit", handleSubmit)
+
 // *adding event listener for whole '#note-list' 
 noteList.addEventListener('click', (event)=> {
     // * first we need to check what is clicked
@@ -53,3 +61,9 @@ noteList.addEventListener('click', (event)=> {
     Storage.removeNote(event.target)
 
 })
+
+noteCancel.addEventListener("click", handleCancel);
+
+// * Warning to users that refreshing or closing simple note will result in losing data
+
+

@@ -1,0 +1,11 @@
+.m-10{
+    margin: 5.5rem;
+}
+
+.no-show {
+    display: none;
+}
+
+.show{
+    display: block;
+}

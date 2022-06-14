@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" href="images/icons8-note-48.png">
     <title>Simple Noter</title>
 </head>
-<body>
+<body class="m-10">
     <div class="container">
         <h2 class="bg-secundary text-primary">Simple Noter</h2>
         <button id="note-add-new"class="btn btn-primary">Add new note</button>
         
-        <form id="note-form" class="card mb-3" style="display:none">
+        <form id="note-form" class="card mb-3 no-show">
                 <legend>New Note</legend>
                 <div class="form-group row">
                     <label for="note-subject" class="col-sm-2 col-form-label">Note Subject</label>
@@ -37,7 +38,8 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2"></div>
-                    <input type="submit" class="btn btn-lg btn-primary" id="note-submit">
+                    <input type="submit" value="submit" class="btn btn-lg btn-success" id="note-submit">
+                    <input type="submit" value="cancel" class="btn btn-lg btn-danger" id="note-cancel">
                 </div>
                 </div>
         </form>
