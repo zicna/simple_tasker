@@ -12,13 +12,18 @@ class UI{
                 <th>${note.subject}</th>
                 <th>${note.body}</th>
                 <th>${note.date}</th>
-                <th><a href="" class="btn btn-danger">X</a></th>
+                <th><a href="#" class="btn btn-danger">X</a></th>
+                <th><a href="#" class="btn btn-success">DONE</a></th>
             `
             noteList.prepend(tableRow);
     }
 
     static removeNote(target){
         target.closest("tr").remove();
+    }
+
+    static clearAllNotes(){
+        noteList.innerHTML = '';
     }
 
 }

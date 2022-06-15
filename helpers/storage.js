@@ -40,4 +40,8 @@ class Storage {
       })
       localStorage.setItem('notes', JSON.stringify(notes))
   }
+
+  static clearAllNotes(){
+    localStorage.clear();
+  }
 }

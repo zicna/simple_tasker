@@ -1,6 +1,7 @@
 // * HTML constants
 const notification = document.querySelector('#notifications')
 const noteAddNew = document.getElementById('note-add-new')
+const noteClearAll = document.getElementById('note-clear-all');
 const noteForm = document.getElementById('note-form')
 const noteSubmit = document.getElementById('note-submit')
 const noteCancel = document.getElementById('note-cancel')
@@ -15,8 +16,9 @@ const noteDate = document.getElementById('note-date')
 
 // *
 const toggleShow = () => {
-  noteForm.classList.toggle('no-show')
-  noteAddNew.classList.toggle('no-show')
+  noteForm.classList.toggle('no-show');
+  noteAddNew.classList.toggle('no-show');
+  noteClearAll.classList.toggle('no-show');
 }
 // * note notification container handler(ADDING, REMOVING, CLEARING)
 const noteNotification = (action, message) => {
@@ -61,6 +63,12 @@ const handleRemove = (event) => {
   Storage.removeNote(event.target);
   UI.removeNote(event.target);
 }
+
+const handleRemoveAll = () => {
+  UI.clearAllNotes();
+  Storage.clearAllNotes();
+  noteNotification("danger", "ALL NOTES CLEARED");
+}
 const handleBeforeunload = (event) => {
   event.preventDefault();
   localStorage.clear();
@@ -72,5 +80,7 @@ noteAddNew.addEventListener('click', toggleShow);
 noteCancel.addEventListener('click', toggleShow);
 noteForm.addEventListener('submit', handleSubmit);
 noteList.addEventListener('click', handleRemove);
+noteClearAll.addEventListener('click',handleRemoveAll);
+
 
 window.addEventListener('beforeunload', handleBeforeunload);
