@@ -29,17 +29,18 @@ class Storage {
     localStorage.setItem('notes', JSON.stringify(notes))
   }
 
-// * we will be deleting notes by note.body
+// * use note id to find and delete note
   static removeNote(e){
-      const noteBody = e.parentElement.parentElement.children[1].innerText
+      const noteID = e.closest("tr").dataset.id;
 
-      const notes = Storage.getNotes()
+      const notes = Storage.getNotes();
 
       notes.forEach((note, index) => {
-          if(note.body === noteBody){
+          if(note.id === noteID){
             notes.splice(index, 1)
           }
       })
       localStorage.setItem('notes', JSON.stringify(notes))
+      console.log(localStorage)
   }
 }

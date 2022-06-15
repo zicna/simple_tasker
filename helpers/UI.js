@@ -5,7 +5,8 @@ class UI{
 
     static addNoteToTable(note){
         
-            const tableRow = document.createElement('tr')
+            const tableRow = document.createElement('tr');
+            tableRow.setAttribute("data-id", note.id)
             tableRow.innerHTML = 
             `
                 <th>${note.subject}</th>
