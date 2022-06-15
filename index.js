@@ -42,17 +42,23 @@ const noteNotification = (action, message) => {
 const handleSubmit = (event) => {
   event.preventDefault()
   toggleShow()
-  noteNotification('success', 'new note has been created')
 
   const noteS = noteSubject.value
   const noteB = noteBody.value
   const noteD = noteDate.value
 
-  if (noteS === '' || noteB === '' || noteD === '') Promps.worning()
-  else {
+  if (noteS === '' || noteB === '' || noteD === '') {
+    Promps.worning()
+  } else if (Number(new Date(noteD + ' 00:00:00')) < Number(new Date())) {
+    noteNotification(
+      'worning',
+      'can NOT choose date in past. Please try again.'
+    )
+  } else {
     const note = new Note(noteS, noteB, noteD)
     Storage.addNote(note)
     UI.addNoteToTable(note)
+    noteNotification('success', 'new note has been created')
   }
   event.target.reset()
 }
