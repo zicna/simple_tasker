@@ -47,6 +47,8 @@ const handleSubmit = (event) => {
   const noteB = noteBody.value
   const noteD = noteDate.value
 
+  console.log(formatDate(noteD));
+
   if (noteS === '' || noteB === '' || noteD === '') {
     noteNotification(
       'worning',

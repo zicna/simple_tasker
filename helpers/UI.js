@@ -9,8 +9,8 @@ class UI {
     tableRow.innerHTML = `
                 <th>${note.subject}</th>
                 <th>${note.body}</th>
-                <th>${note.deadline}</th>
-                <th>${note.timestamp}</th>
+                <th>${formatDate(note.deadline)}</th>
+                <th>${formatDate(note.timestamp)}</th>
                 <th><a href="#" class="btn btn-danger">X</a></th>
                 <th><a href="#" class="btn btn-success">DONE</a></th>
             `
