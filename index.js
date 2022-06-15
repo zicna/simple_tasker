@@ -68,20 +68,17 @@ const handleRemove = (event) => {
     Storage.removeNote(event.target);
     UI.removeNote(event.target);
 }
+const handleBeforeunload = (event) => {
+    event.preventDefault();
+    localStorage.clear();
+    event.returnValue = null;
+}
 
 // * Event Listeners
-// document.addEventListener('DOMContentLoaded', UI.displayNotes)
 noteAddNew.addEventListener('click', toggleShow);
 noteCancel.addEventListener('click', toggleShow);
 noteForm.addEventListener('submit', handleSubmit);
 noteList.addEventListener('click', handleRemove);
 
+window.addEventListener("beforeunload", handleBeforeunload);
 
-window.addEventListener("beforeunload", function(event){
-    event.preventDefault();
-    localStorage.clear();
-    console.log(event)
-    event.returnValue = null;
-})
-
-// * Warning to users that refreshing or closing simple note will result in losing data
