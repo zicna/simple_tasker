@@ -23,6 +23,11 @@
     color: green;
 }
 
+.worning {
+    background-color: rgb(250, 191, 81);
+    color: rgb(74, 61, 1);
+}
+
 .danger {
     background-color: lightcoral;
     color: red;
