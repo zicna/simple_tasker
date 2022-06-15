@@ -48,7 +48,10 @@ const handleSubmit = (event) => {
   const noteD = noteDate.value
 
   if (noteS === '' || noteB === '' || noteD === '') {
-    Promps.worning()
+    noteNotification(
+      'worning',
+      'all fields must be filled'
+    )
   } else if (dateInPast(noteD)) {
     noteNotification(
       'worning',
