@@ -53,7 +53,10 @@ const handleSubmit = (event) => {
 }
 
 const handleRemove = (event) => {
-  event.preventDefault()
+  event.preventDefault();
+  // !Guard clause
+  if(!event.target.classList.contains("btn-danger")) return;
+
   noteNotification("worning", "note has been DELETED")
   Storage.removeNote(event.target)
   UI.removeNote(event.target)
