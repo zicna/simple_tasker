@@ -22,7 +22,10 @@ class Storage {
   }
 
   static addNote(note){
-    let notes = Storage.getNotes().unshift(note);
+    let notes = Storage.getNotes()
+    // ! problem was return value of unshift() method
+    // ! it will change undeline array but it returns length of a new array
+    notes.unshift(note);
     localStorage.setItem('notes', JSON.stringify(notes))
   }
 

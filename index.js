@@ -52,7 +52,8 @@ const handleSubmit = (event) => {
   const noteD = noteDate.value
 
   if (noteS === '' || noteB === '' || noteD === '') {
-    Promps.worning()
+    //! only way to trigger this is to remove "regured" from input fields
+    Promps.worning();
   } else {
     const note = new Note(noteS, noteB, noteD)
     Storage.addNote(note)
@@ -68,7 +69,7 @@ const handleRemove = (event) => {
 }
 
 // * Event Listeners
-document.addEventListener('DOMContentLoaded', UI.displayNotes)
+// document.addEventListener('DOMContentLoaded', UI.displayNotes)
 noteAddNew.addEventListener('click', toggleShow)
 noteCancel.addEventListener('click', toggleShow)
 noteForm.addEventListener('submit', handleSubmit)
