@@ -32,7 +32,7 @@ const noteNotification = (action, message) => {
     notification.textContent = ``
   }, 2000)
 }
-// ********************************************************
+// ******************* handle functions *************************************
 const handleSubmit = (event) => {
   event.preventDefault();
   toggleShow();
@@ -42,15 +42,12 @@ const handleSubmit = (event) => {
   const noteB = noteBody.value;
   const noteD = noteDate.value;
 
-  if (noteS === '' || noteB === '' || noteD === '') {
-    //! only way to trigger this is to remove "reguired" from input fields
-    Promps.worning()
-  } else {
+  if (noteS === '' || noteB === '' || noteD === '') Promps.worning()
+  else {
     const note = new Note(noteS, noteB, noteD);
     Storage.addNote(note);
     UI.addNoteToTable(note);
   }
-
   event.target.reset();
 }
 
@@ -59,7 +56,7 @@ const handleRemove = (event) => {
   // !Guard clause
   if(!event.target.classList.contains("btn-danger")) return;
 
-  noteNotification("worning", "note has been DELETED")
+  noteNotification("worning", "note has been DELETED");
   Storage.removeNote(event.target);
   UI.removeNote(event.target);
 }
@@ -69,11 +66,14 @@ const handleRemoveAll = () => {
   Storage.clearAllNotes();
   noteNotification("danger", "ALL NOTES CLEARED");
 }
+
 const handleBeforeunload = (event) => {
   event.preventDefault();
   localStorage.clear();
   event.returnValue = null;
 }
+
+// *****************************************************************
 
 // * Event Listeners
 noteAddNew.addEventListener('click', toggleShow);
@@ -81,6 +81,5 @@ noteCancel.addEventListener('click', toggleShow);
 noteForm.addEventListener('submit', handleSubmit);
 noteList.addEventListener('click', handleRemove);
 noteClearAll.addEventListener('click',handleRemoveAll);
-
 
 window.addEventListener('beforeunload', handleBeforeunload);
