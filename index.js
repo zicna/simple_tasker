@@ -19,41 +19,42 @@ const toggleShow = () => {
   noteAddNew.classList.toggle('no-show')
 }
 // *
-const handleAddingNotification = () => {
-  notification.classList.toggle('no-show');
-  notification.classList.toggle('success');
-  notification.textContent = 'new note has been created';
-  
+const addingNoteNotification = () => {
+  notification.classList.toggle('no-show')
+  notification.classList.toggle('success')
+  notification.textContent = 'new note has been created'
+
   setTimeout(() => {
-      notification.classList.toggle('no-show')
-      notification.classList.toggle('success');
+    notification.classList.toggle('no-show')
+    notification.classList.toggle('success')
     notification.textContent = ' '
-  }, 3000)
+  }, 2000)
 }
-// const handleRemovingNotification = () => {
-//   notification.classList.toggle('no-show');
-//   notification.classList.toggle('danger');
-//   notification.textContent = 'new note has been deleted';
-  
-//   setTimeout(() => {
-//       notification.classList.toggle('no-show')
-//       notification.classList.toggle('danger');
-//     notification.textContent = ' '
-//   }, 3000)
-// }
+
+const removingNoteNotification = () => {
+  notification.classList.toggle('no-show');
+  notification.classList.toggle('worning');
+  notification.textContent = 'note has been DELETED';
+
+  setTimeout(() => {
+    notification.classList.toggle('no-show')
+    notification.classList.toggle('worning')
+    notification.textContent = ' '
+  }, 2000)
+}
 
 const handleSubmit = (event) => {
   event.preventDefault()
   toggleShow()
-  handleAddingNotification()
+  addingNoteNotification()
 
   const noteS = noteSubject.value
   const noteB = noteBody.value
   const noteD = noteDate.value
 
   if (noteS === '' || noteB === '' || noteD === '') {
-    //! only way to trigger this is to remove "regured" from input fields
-    Promps.worning();
+    //! only way to trigger this is to remove "reguired" from input fields
+    Promps.worning()
   } else {
     const note = new Note(noteS, noteB, noteD)
     Storage.addNote(note)
@@ -64,21 +65,21 @@ const handleSubmit = (event) => {
 }
 
 const handleRemove = (event) => {
-    event.preventDefault();
-    Storage.removeNote(event.target);
-    UI.removeNote(event.target);
+  event.preventDefault()
+  removingNoteNotification()
+  Storage.removeNote(event.target)
+  UI.removeNote(event.target)
 }
 const handleBeforeunload = (event) => {
-    event.preventDefault();
-    localStorage.clear();
-    event.returnValue = null;
+  event.preventDefault()
+  localStorage.clear()
+  event.returnValue = null
 }
 
 // * Event Listeners
-noteAddNew.addEventListener('click', toggleShow);
-noteCancel.addEventListener('click', toggleShow);
-noteForm.addEventListener('submit', handleSubmit);
-noteList.addEventListener('click', handleRemove);
+noteAddNew.addEventListener('click', toggleShow)
+noteCancel.addEventListener('click', toggleShow)
+noteForm.addEventListener('submit', handleSubmit)
+noteList.addEventListener('click', handleRemove)
 
-window.addEventListener("beforeunload", handleBeforeunload);
-
+window.addEventListener('beforeunload', handleBeforeunload)
