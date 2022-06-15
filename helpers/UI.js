@@ -18,10 +18,8 @@ class UI{
             noteList.appendChild(tableRow)
     }
 
-    static removeNote(e){
-        if(e.classList.contains('btn-danger')){
-            e.parentElement.parentElement.remove()
-        }
+    static removeNote(target){
+        target.closest("tr").remove();
     }
 
 }

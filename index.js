@@ -59,21 +59,29 @@ const handleSubmit = (event) => {
     Storage.addNote(note)
     UI.addNoteToTable(note)
   }
-//   UI.displayNotes();
 
   event.target.reset()
 }
 
 const handleRemove = (event) => {
+    event.preventDefault();
     Storage.removeNote(event.target);
     UI.removeNote(event.target);
 }
 
 // * Event Listeners
 // document.addEventListener('DOMContentLoaded', UI.displayNotes)
-noteAddNew.addEventListener('click', toggleShow)
-noteCancel.addEventListener('click', toggleShow)
-noteForm.addEventListener('submit', handleSubmit)
+noteAddNew.addEventListener('click', toggleShow);
+noteCancel.addEventListener('click', toggleShow);
+noteForm.addEventListener('submit', handleSubmit);
 noteList.addEventListener('click', handleRemove);
+
+
+window.addEventListener("beforeunload", function(event){
+    event.preventDefault();
+    localStorage.clear();
+    console.log(event)
+    event.returnValue = null;
+})
 
 // * Warning to users that refreshing or closing simple note will result in losing data

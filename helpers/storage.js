@@ -30,8 +30,8 @@ class Storage {
   }
 
 // * use note id to find and delete note
-  static removeNote(e){
-      const noteID = e.closest("tr").dataset.id;
+  static removeNote(target){
+      const noteID = target.closest("tr").dataset.id;
 
       const notes = Storage.getNotes();
 
