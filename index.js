@@ -49,7 +49,7 @@ const handleSubmit = (event) => {
 
   if (noteS === '' || noteB === '' || noteD === '') {
     Promps.worning()
-  } else if (Number(new Date(noteD + ' 00:00:00')) < Number(new Date())) {
+  } else if (dateInPast(noteD)) {
     noteNotification(
       'worning',
       'can NOT choose date in past. Please try again.'
