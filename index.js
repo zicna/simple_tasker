@@ -59,6 +59,7 @@ const handleSubmit = (event) => {
     Storage.addNote(note)
     UI.addNoteToTable(note)
   }
+//   UI.displayNotes();
 
   event.target.reset()
 }
