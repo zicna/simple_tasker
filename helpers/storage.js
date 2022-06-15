@@ -1,10 +1,4 @@
 class Storage {
-  // * all methods will be written as class methods (with static keyword)
-  // * so we wouldn't have to create instance of Storage class
-  // * here we would need methods:
-  // !1. getNotes()
-  // !2. addNote()
-
   // * we 'extract' notes from local storage
   // * everything in local storage is saved in key-value pair as strings
   // *that is why we need to convert object into JSON strings before we save them into localeStorage
@@ -13,7 +7,10 @@ class Storage {
   // !JSON.parse()
   static getNotes() {
     let notes;
-    if (localStorage.getItem("notes") === null) {
+// ! this condition will return true:
+// * 1. local storage does not have property 'notes'(with optional chaining) => undefined; !undefined => true
+// * 2. local storage has property 'notes' and it is not not equal to 0 (is equal to 0)
+    if (!(localStorage.getItem("notes")?.length != 0)) {
       notes = [];
     } else {
       notes = JSON.parse(localStorage.getItem("notes"));
