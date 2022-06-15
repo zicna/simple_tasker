@@ -1,15 +1,27 @@
-/* * margin classes  */
+/* * margin and padding classes  */
 
-.m-10{
+.m-5{
     margin: 5rem;
+    /* outline: 1px solid yellow; */
 }
 
 .m-top-5 {
     margin-top: 5rem;
 }
+
+.m-1 {
+    margin: 1rem;
+}
+
+.padd-3 {
+    padding: 3rem;
+}
 /* ************ */
 .no-show {
     display: none;
+}
+.note-form{
+    box-shadow: 0 2.4rem 4.8rem rgba(0,0,0,0.4);
 }
 
 
@@ -32,4 +44,15 @@
     background-color: lightcoral;
     color: red;
 }
+/* ************* */
+
+
+input.form-control-plaintext{
+    border-bottom: 1px solid rgb(68, 68, 68);
+}
+
+.btn{
+    max-width: 50%;
+}
+
 

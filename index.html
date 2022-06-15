@@ -9,15 +9,15 @@
     <link rel="icon" href="images/icons8-note-48.png">
     <title>Simple Noter</title>
 </head>
-<body class="m-10">
-    <div class="container">
+<body class="m-5 container">
+    <div>
         <h2 class="bg-secundary text-primary">Simple Noter</h2>
         <div class="noti-container">
             <p id="notifications" class="no-show"></p>
         </div>
         <button id="note-add-new"class="btn btn-primary">Add new note</button>
         
-        <form id="note-form" class="card mb-3 no-show m-top-5">
+        <form id="note-form" class="card mb-3 no-show m-top-5 padd-3 note-form">
                 <legend>New Note</legend>
                 <div class="form-group row">
                     <label for="note-subject" class="col-sm-2 col-form-label">Note Subject</label>
@@ -41,8 +41,8 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2"></div>
-                    <input  type="submit" value="submit" name=submit" class="btn btn-lg btn-success" id="note-submit">
-                    <input  type="submit" value="cancel" name="cancel" class="btn btn-lg btn-danger" id="note-cancel">
+                    <input  type="submit" value="submit" name=submit" class="btn btn-lg btn-success m-1" id="note-submit">
+                    <input  type="submit" value="cancel" name="cancel" class="btn btn-lg btn-danger m-1" id="note-cancel">
                 </div>
                 </div>
         </form>
