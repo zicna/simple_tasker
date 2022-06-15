@@ -61,7 +61,7 @@ const handleRemove = (event) => {
   event.preventDefault()
   // !Guard clause
   if (!event.target.classList.contains('btn-danger')) return
-
+  
   noteNotification('worning', 'note has been DELETED')
   Storage.removeNote(event.target)
   UI.removeNote(event.target)
@@ -82,7 +82,12 @@ const handleBeforeunload = (event) => {
 // *****************************************************************
 // * Event Listeners
 noteAddNew.addEventListener('click', toggleShow)
-noteCancel.addEventListener('click', toggleShow)
+noteCancel.addEventListener('click', (event) => {
+  event.preventDefault();
+  event.target.parentElement.reset()
+  toggleShow();
+  
+})
 noteForm.addEventListener('submit', handleSubmit)
 noteList.addEventListener('click', handleRemove)
 noteClearAll.addEventListener('click', handleRemoveAll)
