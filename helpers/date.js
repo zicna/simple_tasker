@@ -13,3 +13,7 @@ const formatDate = (stringDate) => {
     }
     return new Intl.DateTimeFormat(locale, options).format(new Date(stringDate))
 }
+
+const daysLeft = (date1, date2) => {
+    return Math.floor((Number(new Date(date1)) - Number(new Date(date2))) / 1000 / 60 / 60 / 24);
+}

@@ -11,6 +11,7 @@ class UI {
                 <th>${note.body}</th>
                 <th>${formatDate(note.deadline)}</th>
                 <th>${formatDate(note.timestamp)}</th>
+                <th>${daysLeft(note.deadline, note.timestamp)}</th>
                 <th><a href="#" class="btn btn-danger">X</a></th>
                 <th><a href="#" class="btn btn-success">DONE</a></th>
             `
