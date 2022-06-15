@@ -36,11 +36,8 @@ class Storage {
       const notes = Storage.getNotes();
 
       notes.forEach((note, index) => {
-          if(note.id === noteID){
-            notes.splice(index, 1)
-          }
+          if(note.id === noteID) notes.splice(index, 1);
       })
       localStorage.setItem('notes', JSON.stringify(notes))
-      console.log(localStorage)
   }
 }
