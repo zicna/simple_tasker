@@ -18,35 +18,23 @@ const toggleShow = () => {
   noteForm.classList.toggle('no-show')
   noteAddNew.classList.toggle('no-show')
 }
-// *
-const addingNoteNotification = () => {
+// * note notification container handler(ADDING, REMOVING, CLEARING)
+const noteNotification = (action, message) => {
   notification.classList.toggle('no-show')
-  notification.classList.toggle('success')
-  notification.textContent = 'new note has been created'
+  notification.classList.toggle(`${action}`)
+  notification.textContent = `${message}`
 
   setTimeout(() => {
     notification.classList.toggle('no-show')
-    notification.classList.toggle('success')
-    notification.textContent = ' '
+    notification.classList.toggle(`${action}`)
+    notification.textContent = ``
   }, 2000)
 }
-
-const removingNoteNotification = () => {
-  notification.classList.toggle('no-show');
-  notification.classList.toggle('worning');
-  notification.textContent = 'note has been DELETED';
-
-  setTimeout(() => {
-    notification.classList.toggle('no-show')
-    notification.classList.toggle('worning')
-    notification.textContent = ' '
-  }, 2000)
-}
-
+// ********************************************************
 const handleSubmit = (event) => {
   event.preventDefault()
   toggleShow()
-  addingNoteNotification()
+  noteNotification("success", "new note has been created")
 
   const noteS = noteSubject.value
   const noteB = noteBody.value
@@ -66,7 +54,7 @@ const handleSubmit = (event) => {
 
 const handleRemove = (event) => {
   event.preventDefault()
-  removingNoteNotification()
+  noteNotification("worning", "note has been DELETED")
   Storage.removeNote(event.target)
   UI.removeNote(event.target)
 }
