@@ -22,8 +22,7 @@ class Storage {
   }
 
   static addNote(note){
-    let notes = Storage.getNotes()
-    notes.push(note)
+    let notes = Storage.getNotes().unshift(note);
     localStorage.setItem('notes', JSON.stringify(notes))
   }
 
