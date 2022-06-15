@@ -14,7 +14,13 @@ const noteSubject = document.getElementById('note-subject')
 const noteBody = document.getElementById('note-body')
 const noteDate = document.getElementById('note-date')
 
-// *
+const toggleShowClearBtn = () => {
+  if(localStorage.getItem("notes")?.length) noteClearAll.classList.add("no-show")
+  else noteClearAll.classList.remove("no-show")
+}
+
+ 
+// * *****toggle show / no-show ****************
 const toggleShow = () => {
   noteForm.classList.toggle('no-show');
   noteAddNew.classList.toggle('no-show');
@@ -37,11 +43,11 @@ const handleSubmit = (event) => {
   event.preventDefault();
   toggleShow();
   noteNotification("success", "new note has been created");
-
+  
   const noteS = noteSubject.value;
   const noteB = noteBody.value;
   const noteD = noteDate.value;
-
+  
   if (noteS === '' || noteB === '' || noteD === '') Promps.worning()
   else {
     const note = new Note(noteS, noteB, noteD);
@@ -64,7 +70,7 @@ const handleRemove = (event) => {
 const handleRemoveAll = () => {
   UI.clearAllNotes();
   Storage.clearAllNotes();
-  noteNotification("danger", "ALL NOTES CLEARED");
+  noteNotification("danger", "ALL NOTES DELETED");
 }
 
 const handleBeforeunload = (event) => {
@@ -74,7 +80,6 @@ const handleBeforeunload = (event) => {
 }
 
 // *****************************************************************
-
 // * Event Listeners
 noteAddNew.addEventListener('click', toggleShow);
 noteCancel.addEventListener('click', toggleShow);

@@ -42,6 +42,6 @@ class Storage {
   }
 
   static clearAllNotes(){
-    localStorage.clear();
+    localStorage.notes = [];
   }
 }
