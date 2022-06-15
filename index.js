@@ -32,24 +32,24 @@ const noteNotification = (action, message) => {
 }
 // ********************************************************
 const handleSubmit = (event) => {
-  event.preventDefault()
-  toggleShow()
-  noteNotification("success", "new note has been created")
+  event.preventDefault();
+  toggleShow();
+  noteNotification("success", "new note has been created");
 
-  const noteS = noteSubject.value
-  const noteB = noteBody.value
-  const noteD = noteDate.value
+  const noteS = noteSubject.value;
+  const noteB = noteBody.value;
+  const noteD = noteDate.value;
 
   if (noteS === '' || noteB === '' || noteD === '') {
     //! only way to trigger this is to remove "reguired" from input fields
     Promps.worning()
   } else {
-    const note = new Note(noteS, noteB, noteD)
-    Storage.addNote(note)
-    UI.addNoteToTable(note)
+    const note = new Note(noteS, noteB, noteD);
+    Storage.addNote(note);
+    UI.addNoteToTable(note);
   }
 
-  event.target.reset()
+  event.target.reset();
 }
 
 const handleRemove = (event) => {
@@ -58,19 +58,19 @@ const handleRemove = (event) => {
   if(!event.target.classList.contains("btn-danger")) return;
 
   noteNotification("worning", "note has been DELETED")
-  Storage.removeNote(event.target)
-  UI.removeNote(event.target)
+  Storage.removeNote(event.target);
+  UI.removeNote(event.target);
 }
 const handleBeforeunload = (event) => {
-  event.preventDefault()
-  localStorage.clear()
-  event.returnValue = null
+  event.preventDefault();
+  localStorage.clear();
+  event.returnValue = null;
 }
 
 // * Event Listeners
-noteAddNew.addEventListener('click', toggleShow)
-noteCancel.addEventListener('click', toggleShow)
-noteForm.addEventListener('submit', handleSubmit)
-noteList.addEventListener('click', handleRemove)
+noteAddNew.addEventListener('click', toggleShow);
+noteCancel.addEventListener('click', toggleShow);
+noteForm.addEventListener('submit', handleSubmit);
+noteList.addEventListener('click', handleRemove);
 
-window.addEventListener('beforeunload', handleBeforeunload)
+window.addEventListener('beforeunload', handleBeforeunload);

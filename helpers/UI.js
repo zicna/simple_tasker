@@ -14,8 +14,7 @@ class UI{
                 <th>${note.date}</th>
                 <th><a href="" class="btn btn-danger">X</a></th>
             `
-            Promps.success();
-            noteList.appendChild(tableRow)
+            noteList.prepend(tableRow);
     }
 
     static removeNote(target){
