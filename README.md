@@ -1,4 +1,4 @@
-## 📓✏ 📓✏ 📓✏ Simple Note 📓✏ 📓✏ 📓✏
+## 📓✏ 📓✏ 📓✏ Simple Task 📓✏ 📓✏ 📓✏
 
 ![take notes](https://media.giphy.com/media/5euCfiX7g4EVt3L76o/giphy.gif)
 ___
@@ -11,11 +11,11 @@ ___
 3. [How to use this application](#how-to-use-this-application)
 4. [Navigating through files](#Files)
 4. [JS `localStorage`](#localStorage)
-5. [Credits](#credits)
-7. [Contributions](#Contributions)
-8. [Future upgrades](#future-upgrades)
-9. [Bugs](#bugs)
-10. [License](#license)
+5. [Credits and Resources](#credits-and-resources)
+6. [Contributions](#Contributions)
+7. [Future upgrades](#future-upgrades)
+8. [Bugs](#bugs)
+9.  [License](#license)
 
    
 
@@ -29,7 +29,7 @@ ___
     ___
     ## `localStorage`
     ___
-    ## Credits
+    ## Credits and Resources
 
     1. [Traversy media](https://www.youtube.com/watch?v=JaMCxVWtW58&t=2168s&ab_channel=TraversyMedia)
     2. [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
