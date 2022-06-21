@@ -1,4 +1,4 @@
-class Note {
+class Task {
   constructor(subject, body, date) {
     this.subject = subject
     this.body = body

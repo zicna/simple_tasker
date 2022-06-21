@@ -6,68 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" href="images/icons8-note-48.png">
-    <title>Simple Noter</title>
+    <link rel="icon" href="images/icons8-task-48.png">
+    <title>Simple tasker</title>
 </head>
 <body class="m-5 container">
     <div>
-        <h2 class="bg-secundary text-primary">Simple Noter</h2>
+        <h2 class="bg-secundary text-primary">Simple tasker</h2>
         <div class="noti-container">
             <p id="notifications" class="no-show"></p>
         </div>
-        <button id="note-add-new"class="btn btn-primary">Add new note</button>
-        <button id="note-clear-all"class="btn btn-danger">Clear all notes</button>
+        <button id="task-add-new"class="btn btn-primary">Add new task</button>
+        <button id="task-clear-all"class="btn btn-danger">Clear all tasks</button>
         
-        <form id="note-form" class="card mb-3 no-show m-top-5 padd-3 note-form">
-                <legend>New Note</legend>
+        <form id="task-form" class="card mb-3 no-show m-top-5 padd-3 task-form">
+                <legend>New task</legend>
                 <div class="form-group row">
-                    <label for="note-subject" class="col-sm-2 col-form-label">Subject</label>
+                    <label for="task-subject" class="col-sm-2 col-form-label">Subject</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control-plaintext" id="note-subject"
+                        <input type="text" class="form-control-plaintext" id="task-subject"
                         required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="note-body" class="col-sm-2 col-form-label">Note</label>
+                    <label for="task-body" class="col-sm-2 col-form-label">Task</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control-plaintext" id="note-body"
+                        <input type="text" class="form-control-plaintext" id="task-body"
                         required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="note-date" class="col-sm-2 col-form-label">Deadline</label>
+                    <label for="task-date" class="col-sm-2 col-form-label">Deadline</label>
                     <div class="col-sm-10">
-                        <input type="date" min="2022-6-15" max="2042-6-15" class="form-control-plaintext" id="note-date"
+                        <input type="date" min="2022-6-15" max="2042-6-15" class="form-control-plaintext" id="task-date"
                         required>
                     </div>
                 </div>
                 <div class="d-grid gap-2"></div>
-                    <input  type="submit" value="submit" name=submit" class="btn btn-lg btn-success m-1" id="note-submit">
-                    <input  type="submit" value="cancel" name="cancel" class="btn btn-lg btn-danger m-1" id="note-cancel">
+                    <input  type="submit" value="submit" name=submit" class="btn btn-lg btn-success m-1" id="task-submit">
+                    <input  type="submit" value="cancel" name="cancel" class="btn btn-lg btn-danger m-1" id="task-cancel">
                 </div>
                 </div>
         </form>
 
         
-        <table id="note-table" class="table table-hover table-default m-top-5" >
+        <table id="task-table" class="table table-hover table-default m-top-5" >
             <thead class="table-active">
                 <tr>
                     <th scope="col">Subject</th>
-                    <th scope="col">Note</th>
+                    <th scope="col">Task</th>
                     <th scope="col">Deadline</th>
                     <th scope="col">Assigned</th>
                     <th scope="col">Days left</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody id="note-list"></tbody>
+            <tbody id="task-list"></tbody>
         </table>
     </div>
     <script src="helpers/storage.js"></script>
     <script src="helpers/UI.js"></script>
     <script src="helpers/randomID.js"></script>
     <script src="helpers/date.js"></script>
-    <script src="note.js"></script>
+    <script src="task.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

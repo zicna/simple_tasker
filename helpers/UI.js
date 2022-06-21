@@ -1,28 +1,28 @@
 class UI {
-  static displayNotes() {
-    Storage.getNotes().forEach((note) => UI.addNoteToTable(note))
+  static displayTasks() {
+    Storage.getTasks().forEach((task) => UI.addNoteToTable(task))
   }
 
-  static addNoteToTable(note) {
+  static addTaskToTable(task) {
     const tableRow = document.createElement('tr')
-    tableRow.setAttribute('data-id', note.id)
+    tableRow.setAttribute('data-id', task.id)
     tableRow.innerHTML = `
-                <th>${note.subject}</th>
-                <th>${note.body}</th>
-                <th>${formatDate(note.deadline)}</th>
-                <th>${formatDate(note.timestamp)}</th>
-                <th>${daysLeft(note.deadline, note.timestamp)}</th>
+                <th>${task.subject}</th>
+                <th>${task.body}</th>
+                <th>${formatDate(task.deadline)}</th>
+                <th>${formatDate(task.timestamp)}</th>
+                <th>${daysLeft(task.deadline, task.timestamp)}</th>
                 <th><a href="#" class="btn btn-danger">X</a></th>
                 <th><a href="#" class="btn btn-success">DONE</a></th>
             `
-    noteList.prepend(tableRow)
+    taskList.prepend(tableRow)
   }
 
-  static removeNote(target) {
+  static removeTask(target) {
     target.closest('tr').remove()
   }
 
-  static clearAllNotes() {
-    noteList.innerHTML = ''
+  static clearAllTasks() {
+    taskList.innerHTML = ''
   }
 }

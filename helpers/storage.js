@@ -6,28 +6,28 @@ class Storage {
   // !JSON.parse()
   // ! this way we are also safe from shallow/deep copy problems
   
-  static getNotes(){
-    return JSON.parse(localStorage.getItem("notes")) || [];
+  static getTasks(){
+    return JSON.parse(localStorage.getItem("tasks")) || [];
   }
 
-  static addNote(note) {
-    let notes = Storage.getNotes()
-    notes.unshift(note)
-    localStorage.setItem('notes', JSON.stringify(notes))
+  static addTask(task) {
+    let tasks = Storage.getTasks()
+    tasks.unshift(task)
+    localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
   // * use note id to find and delete note
-  static removeNote(target) {
-    const noteID = target.closest('tr').dataset.id
-    const notes = Storage.getNotes()
+  static removeTask(target) {
+    const taskID = target.closest('tr').dataset.id
+    const tasks = Storage.getTasks()
 
-    notes.forEach((note, index) => {
-      if (note.id === noteID) notes.splice(index, 1)
+    tasks.forEach((task, index) => {
+      if (task.id === taskID) tasks.splice(index, 1)
     })
-    localStorage.setItem('notes', JSON.stringify(notes))
+    localStorage.setItem('tasks', JSON.stringify(tasks))
   }
 
-  static clearAllNotes() {
-    localStorage.setItem("notes", JSON.stringify([]));
+  static clearAllTasks() {
+    localStorage.setItem("tasks", JSON.stringify([]));
   }
 }

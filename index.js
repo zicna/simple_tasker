@@ -1,33 +1,33 @@
 // * HTML constants
 const notification = document.querySelector('#notifications')
-const noteAddNew = document.getElementById('note-add-new')
-const noteClearAll = document.getElementById('note-clear-all')
-const noteForm = document.getElementById('note-form')
-const noteSubmit = document.getElementById('note-submit')
-const noteCancel = document.getElementById('note-cancel')
+const taskAddNew = document.getElementById('task-add-new')
+const taskClearAll = document.getElementById('task-clear-all')
+const taskForm = document.getElementById('task-form')
+const taskSubmit = document.getElementById('task-submit')
+const taskCancel = document.getElementById('task-cancel')
 
-const noteTable = document.getElementById('note-table')
-const noteList = document.querySelector('#note-list')
+const taskTable = document.getElementById('task-table')
+const taskList = document.querySelector('#task-list')
 
 // *form constatns
-const noteSubject = document.getElementById('note-subject')
-const noteBody = document.getElementById('note-body')
-const noteDate = document.getElementById('note-date')
+const taskSubject = document.getElementById('task-subject')
+const taskBody = document.getElementById('task-body')
+const taskDate = document.getElementById('task-date')
 
 const toggleShowClearBtn = () => {
-  if (localStorage.getItem('notes')?.length)
-    noteClearAll.classList.add('no-show')
-  else noteClearAll.classList.remove('no-show')
+  if (localStorage.getItem('tasks')?.length)
+    taskClearAll.classList.add('no-show')
+  else taskClearAll.classList.remove('no-show')
 }
 
 // * *****toggle show / no-show ****************
 const toggleShow = () => {
-  noteForm.classList.toggle('no-show')
-  noteAddNew.classList.toggle('no-show')
-  noteClearAll.classList.toggle('no-show')
+  taskForm.classList.toggle('no-show')
+  taskAddNew.classList.toggle('no-show')
+  taskClearAll.classList.toggle('no-show')
 }
 // * note notification container handler(ADDING, REMOVING, CLEARING)
-const noteNotification = (action, message) => {
+const taskNotification = (action, message) => {
   notification.classList.toggle('no-show')
   notification.classList.toggle(`${action}`)
   notification.textContent = `${message}`
@@ -43,27 +43,27 @@ const handleSubmit = (event) => {
   event.preventDefault()
   toggleShow()
 
-  const noteS = noteSubject.value
-  const noteB = noteBody.value
-  const noteD = noteDate.value
+  const taskS = taskSubject.value
+  const taskB = taskBody.value
+  const taskD = taskDate.value
 
-  console.log(formatDate(noteD));
+  console.log(formatDate(taskD));
 
-  if (noteS === '' || noteB === '' || noteD === '') {
-    noteNotification(
+  if (taskS === '' || taskB === '' || taskD === '') {
+    taskNotification(
       'worning',
       'all fields must be filled'
     )
-  } else if (dateInPast(noteD)) {
-    noteNotification(
+  } else if (dateInPast(taskD)) {
+    taskNotification(
       'worning',
       'can NOT choose date in past. Please try again.'
     )
   } else {
-    const note = new Note(noteS, noteB, noteD)
-    Storage.addNote(note)
-    UI.addNoteToTable(note)
-    noteNotification('success', 'new note has been created')
+    const task = new Task(taskS, taskB, taskD)
+    Storage.addTask(task)
+    UI.addTaskToTable(task)
+    taskNotification('success', 'new task has been created')
   }
   event.target.reset()
 }
@@ -79,15 +79,15 @@ const handleRemove = (event) => {
   // !Guard clause
   if (!event.target.classList.contains('btn-danger')) return
 
-  noteNotification('worning', 'note has been DELETED')
-  Storage.removeNote(event.target)
-  UI.removeNote(event.target)
+  taskNotification('worning', 'task has been DELETED')
+  Storage.removeTask(event.target)
+  UI.removeTask(event.target)
 }
 
 const handleRemoveAll = () => {
-  UI.clearAllNotes()
-  Storage.clearAllNotes()
-  noteNotification('danger', 'ALL NOTES DELETED')
+  UI.clearAllTasks()
+  Storage.clearAllTasks()
+  taskNotification('danger', 'ALL tasks DELETED')
 }
 
 const handleBeforeunload = (event) => {
@@ -98,10 +98,10 @@ const handleBeforeunload = (event) => {
 
 // *****************************************************************
 // * Event Listeners
-noteAddNew.addEventListener('click', toggleShow)
-noteCancel.addEventListener('click', handleCancel)
-noteForm.addEventListener('submit', handleSubmit)
-noteList.addEventListener('click', handleRemove)
-noteClearAll.addEventListener('click', handleRemoveAll)
+taskAddNew.addEventListener('click', toggleShow)
+taskCancel.addEventListener('click', handleCancel)
+taskForm.addEventListener('submit', handleSubmit)
+taskList.addEventListener('click', handleRemove)
+taskClearAll.addEventListener('click', handleRemoveAll)
 
 window.addEventListener('beforeunload', handleBeforeunload)
