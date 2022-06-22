@@ -39,6 +39,10 @@ ___
     Pull requests are more then welcome [here](https://github.com/zicna/simple_note.git). This project is intended to be a safe, welcoming space for collaboration. Thank you!!! 🙏🙏🙏
     ___
     ## Future upgrades
+    - [ ] application architecture (app.js file)
+    - [ ] styling
+    - [ ] fix readme.md
+
     ___
     ## Bugs 🐛 🐛 🐛
 

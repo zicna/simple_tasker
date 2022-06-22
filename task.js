@@ -5,7 +5,6 @@ class Task {
     this.body = body
     this.deadline = date
     this.timestamp = new Date()
-    console.log(this)
   }
   // setting ID with random
   _getRandNum(min, max) {
