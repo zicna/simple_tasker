@@ -105,3 +105,6 @@ taskList.addEventListener('click', handleRemove)
 taskClearAll.addEventListener('click', handleRemoveAll)
 
 window.addEventListener('beforeunload', handleBeforeunload)
+
+// const app = new App();
+// console.log(app);
