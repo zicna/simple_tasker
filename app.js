@@ -104,9 +104,9 @@ class App {
 
   _removeTask(target) {
     const taskID = target.closest('tr').dataset.id
-    const tasks = Storage.getTasks()
+    this._getTasks()
 
-    this.#tasks = tasks.filter((task) => task.id !== taskID)
+    this.#tasks = this.#tasks.filter((task) => task.id !== taskID)
     localStorage.setItem('tasks', JSON.stringify(this.#tasks))
   }
 
