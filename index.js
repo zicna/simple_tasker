@@ -29,17 +29,17 @@ const taskDate = document.getElementById('task-date')
 //   taskClearAll.classList.toggle('no-show')
 // }
 // * note notification container handler(ADDING, REMOVING, CLEARING)
-const taskNotification = (action, message) => {
-  notification.classList.toggle('no-show')
-  notification.classList.toggle(`${action}`)
-  notification.textContent = `${message}`
+// const taskNotification = (action, message) => {
+//   notification.classList.toggle('no-show')
+//   notification.classList.toggle(`${action}`)
+//   notification.textContent = `${message}`
 
-  setTimeout(() => {
-    notification.classList.toggle('no-show')
-    notification.classList.toggle(`${action}`)
-    notification.textContent = ``
-  }, 2000)
-}
+//   setTimeout(() => {
+//     notification.classList.toggle('no-show')
+//     notification.classList.toggle(`${action}`)
+//     notification.textContent = ``
+//   }, 2000)
+// }
 // ******************* handle functions *************************************
 // const handleSubmit = (event) => {
 //   event.preventDefault()
@@ -76,21 +76,21 @@ const taskNotification = (action, message) => {
 //   toggleShow()
 // }
 
-const handleRemove = (event) => {
-  event.preventDefault()
-  // !Guard clause
-  if (!event.target.classList.contains('btn-danger')) return
+// const handleRemove = (event) => {
+//   event.preventDefault()
+//   // !Guard clause
+//   if (!event.target.classList.contains('btn-danger')) return
 
-  taskNotification('worning', 'task has been DELETED')
-  Storage.removeTask(event.target)
-  UI.removeTask(event.target)
-}
+//   taskNotification('worning', 'task has been DELETED')
+//   Storage.removeTask(event.target)
+//   UI.removeTask(event.target)
+// }
 
-const handleRemoveAll = () => {
-  UI.clearAllTasks()
-  Storage.clearAllTasks()
-  taskNotification('danger', 'ALL tasks DELETED')
-}
+// const handleRemoveAll = () => {
+//   UI.clearAllTasks()
+//   Storage.clearAllTasks()
+//   taskNotification('danger', 'ALL tasks DELETED')
+// }
 
 const handleBeforeunload = (event) => {
   event.preventDefault()

@@ -10,8 +10,8 @@ class App {
     taskAddNew.addEventListener('click', this._toggleShow)
     taskCancel.addEventListener('click', this._handleCancel.bind(this))
     taskForm.addEventListener('submit', this._handleSubmit.bind(this))
-    // taskList.addEventListener('click', handleRemove)
-    // taskClearAll.addEventListener('click', handleRemoveAll)
+    taskList.addEventListener('click', this._handleRemove.bind(this))
+    taskClearAll.addEventListener('click', this._handleRemoveAll.bind(this))
   }
 
   _toggleShow() {
@@ -58,8 +58,8 @@ class App {
       return
     }
     const task = new Task(taskS, taskB, taskD)
-    // Storage.addTask(task)
-    // UI.addTaskToTable(task)
+    this._addTask(task)
+    UI.addTaskToTable(task)
     this._taskNotification('success', 'new task has been created')
     event.target.reset()
   }
@@ -68,6 +68,22 @@ class App {
     event.preventDefault()
     event.target.parentElement.reset()
     this._toggleShow()
+  }
+
+  _handleRemove(event) {
+    event.preventDefault()
+    // !Guard clause
+    if (!event.target.classList.contains('btn-danger')) return
+
+    this._taskNotification('worning', 'task has been DELETED')
+    this._removeTask(event.target)
+    UI.removeTask(event.target)
+  }
+
+  _handleRemoveAll() {
+    UI.clearAllTasks()
+    this._clearAllTasks()
+    this._taskNotification('danger', 'ALL tasks DELETED')
   }
 
   // ***********************************************
@@ -81,19 +97,14 @@ class App {
   }
 
   _addTask(task) {
-    let tasks = Storage.getTasks()
-    tasks.unshift(task)
-    localStorage.setItem('tasks', JSON.stringify(tasks))
+    this._getTasks()
+    this.#tasks.unshift(task)
+    localStorage.setItem('tasks', JSON.stringify(this.#tasks))
   }
 
-  // * use note id to find and delete note
   _removeTask(target) {
     const taskID = target.closest('tr').dataset.id
     const tasks = Storage.getTasks()
-
-    // this.#tasks.forEach((task, index) => {
-    //   if (task.id === taskID) tasks.splice(index, 1)
-    // })
 
     this.#tasks = tasks.filter((task) => task.id !== taskID)
     localStorage.setItem('tasks', JSON.stringify(this.#tasks))
