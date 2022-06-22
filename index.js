@@ -14,18 +14,20 @@ const taskSubject = document.getElementById('task-subject')
 const taskBody = document.getElementById('task-body')
 const taskDate = document.getElementById('task-date')
 
-const toggleShowClearBtn = () => {
-  if (localStorage.getItem('tasks')?.length)
-    taskClearAll.classList.add('no-show')
-  else taskClearAll.classList.remove('no-show')
-}
+// ********************************************************
+
+// const toggleShowClearBtn = () => {
+//   if (localStorage.getItem('tasks')?.length)
+//     taskClearAll.classList.add('no-show')
+//   else taskClearAll.classList.remove('no-show')
+// }
 
 // * *****toggle show / no-show ****************
-const toggleShow = () => {
-  taskForm.classList.toggle('no-show')
-  taskAddNew.classList.toggle('no-show')
-  taskClearAll.classList.toggle('no-show')
-}
+// const toggleShow = () => {
+//   taskForm.classList.toggle('no-show')
+//   taskAddNew.classList.toggle('no-show')
+//   taskClearAll.classList.toggle('no-show')
+// }
 // * note notification container handler(ADDING, REMOVING, CLEARING)
 const taskNotification = (action, message) => {
   notification.classList.toggle('no-show')
@@ -39,40 +41,40 @@ const taskNotification = (action, message) => {
   }, 2000)
 }
 // ******************* handle functions *************************************
-const handleSubmit = (event) => {
-  event.preventDefault()
-  toggleShow()
+// const handleSubmit = (event) => {
+//   event.preventDefault()
+//   toggleShow()
 
-  const taskS = taskSubject.value
-  const taskB = taskBody.value
-  const taskD = taskDate.value
+//   const taskS = taskSubject.value
+//   const taskB = taskBody.value
+//   const taskD = taskDate.value
 
-  console.log(formatDate(taskD));
+//   console.log(formatDate(taskD));
 
-  if (taskS === '' || taskB === '' || taskD === '') {
-    taskNotification(
-      'worning',
-      'all fields must be filled'
-    )
-  } else if (dateInPast(taskD)) {
-    taskNotification(
-      'worning',
-      'can NOT choose date in past. Please try again.'
-    )
-  } else {
-    const task = new Task(taskS, taskB, taskD)
-    Storage.addTask(task)
-    UI.addTaskToTable(task)
-    taskNotification('success', 'new task has been created')
-  }
-  event.target.reset()
-}
+//   if (taskS === '' || taskB === '' || taskD === '') {
+//     taskNotification(
+//       'worning',
+//       'all fields must be filled'
+//     )
+//   } else if (dateInPast(taskD)) {
+//     taskNotification(
+//       'worning',
+//       'can NOT choose date in past. Please try again.'
+//     )
+//   } else {
+//     const task = new Task(taskS, taskB, taskD)
+//     Storage.addTask(task)
+//     UI.addTaskToTable(task)
+//     taskNotification('success', 'new task has been created')
+//   }
+//   event.target.reset()
+// }
 
-const handleCancel = (event) => {
-  event.preventDefault()
-  event.target.parentElement.reset()
-  toggleShow()
-}
+// const handleCancel = (event) => {
+//   event.preventDefault()
+//   event.target.parentElement.reset()
+//   toggleShow()
+// }
 
 const handleRemove = (event) => {
   event.preventDefault()
@@ -97,12 +99,12 @@ const handleBeforeunload = (event) => {
 }
 
 // *****************************************************************
-// * Event Listeners
-taskAddNew.addEventListener('click', toggleShow)
-taskCancel.addEventListener('click', handleCancel)
-taskForm.addEventListener('submit', handleSubmit)
-taskList.addEventListener('click', handleRemove)
-taskClearAll.addEventListener('click', handleRemoveAll)
+// // * Event Listeners
+// taskAddNew.addEventListener('click', toggleShow)
+// taskCancel.addEventListener('click', handleCancel)
+// taskForm.addEventListener('submit', handleSubmit)
+// taskList.addEventListener('click', handleRemove)
+// taskClearAll.addEventListener('click', handleRemoveAll)
 
 window.addEventListener('beforeunload', handleBeforeunload)
 
