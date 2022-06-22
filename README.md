@@ -1,23 +1,20 @@
 ## 📓✏ 📓✏ 📓✏ Simple Task 📓✏ 📓✏ 📓✏
 
-![take notes](https://media.giphy.com/media/5euCfiX7g4EVt3L76o/giphy.gif)
+![take notes](./images/task-list-template.jpg)
 ___
 
-The idea for building this small application is to practice Object Oriented Programming in JS with the usage of `localStorage`.
+The idea for building this small application is to practice `Object Oriented Programming`, basic `DOM` manipulation in JS with the usage of `localStorage` and `Internationalization` API.
 ___
 ## Table of Content
 1. [Description](#description)
 2. [How to Instal this app](#Instalation)
 3. [How to use this application](#how-to-use-this-application)
-4. [Navigating through files](#Files)
-4. [JS `localStorage`](#localStorage)
 5. [Credits and Resources](#credits-and-resources)
 6. [Contributions](#Contributions)
 7. [Future upgrades](#future-upgrades)
 8. [Bugs](#bugs)
 9.  [License](#license)
 
-   
 
     ## Description
     ___
@@ -25,10 +22,7 @@ ___
     ___
     ## How to use this application
     ___
-    ## Files
-    ___
-    ## `localStorage`
-    ___
+    
     ## Credits and Resources
 
     1. [Traversy media](https://www.youtube.com/watch?v=JaMCxVWtW58&t=2168s&ab_channel=TraversyMedia)
@@ -39,9 +33,9 @@ ___
     Pull requests are more then welcome [here](https://github.com/zicna/simple_note.git). This project is intended to be a safe, welcoming space for collaboration. Thank you!!! 🙏🙏🙏
     ___
     ## Future upgrades
-    - [ ] application architecture (app.js file)
+    - [x] application architecture (app.js file)
     - [ ] styling
-    - [ ] fix readme.md
+    - [x] fix readme.md
 
     ___
     ## Bugs 🐛 🐛 🐛
