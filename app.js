@@ -46,21 +46,21 @@ class App {
     const taskB = taskBody.value
     const taskD = taskDate.value
 
-    // console.log(formatDate(taskD));
-
     if (taskS === '' || taskB === '' || taskD === '') {
       this._taskNotification('worning', 'all fields must be filled')
-    } else if (dateInPast(taskD)) {
+      return
+    }
+    if (dateInPast(taskD)) {
       this._taskNotification(
         'worning',
         'can NOT choose date in past. Please try again.'
       )
-    } else {
-      const task = new Task(taskS, taskB, taskD)
-      // Storage.addTask(task)
-      // UI.addTaskToTable(task)
-      this._taskNotification('success', 'new task has been created')
+      return
     }
+    const task = new Task(taskS, taskB, taskD)
+    // Storage.addTask(task)
+    // UI.addTaskToTable(task)
+    this._taskNotification('success', 'new task has been created')
     event.target.reset()
   }
 
