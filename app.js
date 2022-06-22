@@ -2,10 +2,12 @@
 
 class App {
   #tasks = []
+
   constructor() {
     this._getTasks()
   }
 
+  // ***********************************************
   //* Handling localStorage API
 
   _getTasks() {
@@ -26,13 +28,16 @@ class App {
     const taskID = target.closest('tr').dataset.id
     const tasks = Storage.getTasks()
 
-    tasks.forEach((task, index) => {
-      if (task.id === taskID) tasks.splice(index, 1)
-    })
-    localStorage.setItem('tasks', JSON.stringify(tasks))
+    // this.#tasks.forEach((task, index) => {
+    //   if (task.id === taskID) tasks.splice(index, 1)
+    // })
+
+    this.#tasks = tasks.filter(task => task.id !== taskID)
+    localStorage.setItem('tasks', JSON.stringify(this.#tasks))
   }
 
   _clearAllTasks() {
     localStorage.setItem('tasks', JSON.stringify([]))
   }
+  // ***********************************************
 }

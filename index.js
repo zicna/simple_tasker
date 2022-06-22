@@ -106,5 +106,13 @@ taskClearAll.addEventListener('click', handleRemoveAll)
 
 window.addEventListener('beforeunload', handleBeforeunload)
 
-// const app = new App();
-// console.log(app);
+const app = new App();
+console.log(app);
+
+// *******************
+// * dammy data
+const task1 = new Task("taskOne", "this is body of taskOne", "2022-06-25" )
+const task2 = new Task("taskTwo", "this is body of taskTwo", "2022-06-30" )
+// *******************
+
+
